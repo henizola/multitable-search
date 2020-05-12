@@ -2,8 +2,10 @@ import React from 'react';
 import './list.styles.scss'
 
 
-const List=({countries,find})=>{
-let filterd=countries.filter((countrie)=>countrie.name.includes(''))
+const List=({countries,name,region,subregion,capital})=>{
+let filterd=countries.filter((countrie)=>{ return (countrie.name.toLowerCase().includes(name))});
+filterd=filterd.filter((countrie)=>{ return (countrie.region.toLowerCase().includes(region))});
+filterd=filterd.filter((countrie)=>{ return (countrie.subRegion.toLowerCase().includes(subregion))})
 return <div className="single">
     <div className="header">
     <h2 className='cu'>Country</h2>
@@ -15,9 +17,9 @@ return <div className="single">
     </div>
   
      {
-         
+       
          filterd.map((countrie,index)=> <div className='list' key={index}>
-          
+        
             <span className='name'>{countrie.name}</span>
             <span className='capital'>{countrie.capital}</span>
             <span className='region'>{countrie.region}</span>
@@ -26,7 +28,6 @@ return <div className="single">
             <span className='long'>{countrie.longrude}</span> </div> 
      )
      }
-    {/* {console.log(country)} */}
              
         </div>
 
