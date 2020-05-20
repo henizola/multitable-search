@@ -1,35 +1,38 @@
 import React from "react";
 import "./search.styles.scss";
-import { SearchContext } from "../../context/context.context";
 
-const Search = () => {
+const Search = ({ handleChange }) => {
+  const handlech = (event) => {
+    handleChange(event);
+  };
+
   return (
-    <SearchContext.Consumer>
-      {(context) => (
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Filter by Country"
-            onChange={(event) => context.setCountry(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Filter by Capital"
-            onChange={(event) => context.setCapital(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Filter by Region"
-            onChange={(event) => context.setRegion(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Filter by Sub-Region"
-            onChange={(event) => context.setSubRegion(event.target.value)}
-          />
-        </div>
-      )}
-    </SearchContext.Consumer>
+    <div className="search">
+      <input
+        type="text"
+        placeholder="Filter by Country"
+        name="name"
+        onChange={handlech}
+      />
+      <input
+        type="text"
+        placeholder="Filter by Capital"
+        name="capital"
+        onChange={handlech}
+      />
+      <input
+        type="text"
+        placeholder="Filter by Region"
+        name="region"
+        onChange={handlech}
+      />
+      <input
+        type="text"
+        placeholder="Filter by Sub-Region"
+        name="subregion"
+        onChange={handlech}
+      />
+    </div>
   );
 };
 export default Search;
