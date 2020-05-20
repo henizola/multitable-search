@@ -37,18 +37,15 @@ class App extends React.Component {
     }
   };
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
   render() {
     const { ...otherProps } = this.state;
     return (
       <div className="App">
         <h1>Country/Capital Data Multi-Search Service</h1>
-        <Search handleChange={this.handleChange} />
-        <List {...otherProps} />
+        <SearchProvider>
+          <Search />
+          <List {...otherProps} />
+        </SearchProvider>
       </div>
     );
   }
