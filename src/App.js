@@ -10,10 +10,6 @@ class App extends React.Component {
 
     this.state = {
       countries: [],
-      name: "",
-      region: "",
-      subregion: "",
-      capital: "",
     };
   }
 

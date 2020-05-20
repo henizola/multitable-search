@@ -7,13 +7,19 @@ const List = ({ countries }) => {
 
   const filterData = (context) => {
     filterd = countries.filter((countrie) => {
-      return countrie.name.toLowerCase().includes(context.country);
+      return countrie.name
+        .toLowerCase()
+        .includes(context.country.toLowerCase());
     });
     filterd = filterd.filter((countrie) => {
-      return countrie.region.toLowerCase().includes(context.region);
+      return countrie.region
+        .toLowerCase()
+        .includes(context.region.toLowerCase());
     });
     filterd = filterd.filter((countrie) => {
-      return countrie.subRegion.toLowerCase().includes(context.subRegion);
+      return countrie.subRegion
+        .toLowerCase()
+        .includes(context.subRegion.toLowerCase());
     });
   };
 
